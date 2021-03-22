@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.gobackButton = new System.Windows.Forms.ToolStripButton();
@@ -37,14 +38,15 @@
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.newtabButton = new System.Windows.Forms.ToolStripButton();
             this.updateButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.history = new System.Windows.Forms.ToolStripButton();
+            this.like = new System.Windows.Forms.ToolStripButton();
+            this.dislike = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.marks = new System.Windows.Forms.ToolStripDropDownButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.savedriver = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -58,8 +60,10 @@
             this.goButton,
             this.newtabButton,
             this.updateButton,
-            this.toolStripButton1,
-            this.history});
+            this.marks,
+            this.history,
+            this.like,
+            this.dislike});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(913, 57);
@@ -143,16 +147,6 @@
             this.updateButton.Text = "обновить";
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton1.Text = "добавить в закладки";
-            // 
             // history
             // 
             this.history.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -164,9 +158,28 @@
             this.history.Text = "посмотреть историю";
             this.history.Click += new System.EventHandler(this.history_Click);
             // 
+            // like
+            // 
+            this.like.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.like.Image = ((System.Drawing.Image)(resources.GetObject("like.Image")));
+            this.like.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.like.Name = "like";
+            this.like.Size = new System.Drawing.Size(29, 54);
+            this.like.Text = "Сохранить закладку";
+            this.like.Click += new System.EventHandler(this.like_Click);
+            // 
+            // dislike
+            // 
+            this.dislike.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.dislike.Image = ((System.Drawing.Image)(resources.GetObject("dislike.Image")));
+            this.dislike.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.dislike.Name = "dislike";
+            this.dislike.Size = new System.Drawing.Size(29, 54);
+            this.dislike.Text = "Удалить из закладок";
+            this.dislike.Click += new System.EventHandler(this.dislike_Click);
+            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 57);
             this.tabControl1.Name = "tabControl1";
@@ -174,26 +187,31 @@
             this.tabControl1.Size = new System.Drawing.Size(913, 393);
             this.tabControl1.TabIndex = 1;
             // 
-            // tabPage1
+            // marks
             // 
-            this.tabPage1.Controls.Add(this.webBrowser1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(905, 364);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.marks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.marks.Image = ((System.Drawing.Image)(resources.GetObject("marks.Image")));
+            this.marks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.marks.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.marks.Name = "marks";
+            this.marks.Size = new System.Drawing.Size(64, 54);
+            this.marks.Text = "добавить в закладки";
+            this.marks.Click += new System.EventHandler(this.marks_Click);
             // 
-            // webBrowser1
+            // contextMenuStrip1
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(899, 358);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.savedriver});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 56);
+            // 
+            // savedriver
+            // 
+            this.savedriver.Name = "savedriver";
+            this.savedriver.Size = new System.Drawing.Size(216, 24);
+            this.savedriver.Text = "Сохранить на диске";
+            this.savedriver.Click += new System.EventHandler(this.сохранитьНаДискеToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -204,10 +222,11 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,11 +242,13 @@
         private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripButton updateButton;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripButton stopButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton history;
+        private System.Windows.Forms.ToolStripButton like;
+        private System.Windows.Forms.ToolStripButton dislike;
+        private System.Windows.Forms.ToolStripDropDownButton marks;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem savedriver;
     }
 }
 
