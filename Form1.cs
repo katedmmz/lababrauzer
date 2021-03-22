@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace lababrauzer
 {
@@ -37,9 +38,11 @@ namespace lababrauzer
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(toolStripTextBox1.Text))
+            if(!String.IsNullOrEmpty(searchbox.Text))
             {
-                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(toolStripTextBox1.Text);
+                File.AppendAllText("history.txt", "https://www." + searchbox.Text + "\n");
+                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(searchbox.Text);
+                tabControl1.SelectedTab.Text = searchbox.Text;
             }
 
         }
@@ -59,22 +62,42 @@ namespace lababrauzer
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
         }
 
-        private void toolStripTextBox1_KeyUp(object sender, KeyEventArgs e)
+       /* private void searchbox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(toolStripTextBox1.Text);
+                File.AppendAllText("history.txt", "https://www." + searchbox.Text + "\n");
+                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(searchbox.Text);
+                tabControl1.SelectedTab.Text = searchbox.Text;
             }
-        }
+        }*/
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        
+
+        private void history_Click(object sender, EventArgs e)
+        {
+            History form = new History();
+            form.Show();
+        }
+
+        private void searchbox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchbox_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                File.AppendAllText("history.txt", "https://www." + searchbox.Text + "\n");
+                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(searchbox.Text);
+                tabControl1.SelectedTab.Text = searchbox.Text;
+            }
         }
     }
 }
