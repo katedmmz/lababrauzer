@@ -38,11 +38,11 @@
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.newtabButton = new System.Windows.Forms.ToolStripButton();
             this.updateButton = new System.Windows.Forms.ToolStripButton();
+            this.marks = new System.Windows.Forms.ToolStripDropDownButton();
             this.history = new System.Windows.Forms.ToolStripButton();
             this.like = new System.Windows.Forms.ToolStripButton();
             this.dislike = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.marks = new System.Windows.Forms.ToolStripDropDownButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.savedriver = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
@@ -147,6 +147,17 @@
             this.updateButton.Text = "обновить";
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // marks
+            // 
+            this.marks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.marks.Image = ((System.Drawing.Image)(resources.GetObject("marks.Image")));
+            this.marks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.marks.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.marks.Name = "marks";
+            this.marks.Size = new System.Drawing.Size(64, 54);
+            this.marks.Text = "добавить в закладки";
+            this.marks.Click += new System.EventHandler(this.marks_Click);
+            // 
             // history
             // 
             this.history.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -162,9 +173,10 @@
             // 
             this.like.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.like.Image = ((System.Drawing.Image)(resources.GetObject("like.Image")));
+            this.like.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.like.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.like.Name = "like";
-            this.like.Size = new System.Drawing.Size(29, 54);
+            this.like.Size = new System.Drawing.Size(54, 54);
             this.like.Text = "Сохранить закладку";
             this.like.Click += new System.EventHandler(this.like_Click);
             // 
@@ -172,9 +184,10 @@
             // 
             this.dislike.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.dislike.Image = ((System.Drawing.Image)(resources.GetObject("dislike.Image")));
+            this.dislike.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dislike.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.dislike.Name = "dislike";
-            this.dislike.Size = new System.Drawing.Size(29, 54);
+            this.dislike.Size = new System.Drawing.Size(44, 54);
             this.dislike.Text = "Удалить из закладок";
             this.dislike.Click += new System.EventHandler(this.dislike_Click);
             // 
@@ -187,24 +200,13 @@
             this.tabControl1.Size = new System.Drawing.Size(913, 393);
             this.tabControl1.TabIndex = 1;
             // 
-            // marks
-            // 
-            this.marks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.marks.Image = ((System.Drawing.Image)(resources.GetObject("marks.Image")));
-            this.marks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.marks.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.marks.Name = "marks";
-            this.marks.Size = new System.Drawing.Size(64, 54);
-            this.marks.Text = "добавить в закладки";
-            this.marks.Click += new System.EventHandler(this.marks_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.savedriver});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 28);
             // 
             // savedriver
             // 
