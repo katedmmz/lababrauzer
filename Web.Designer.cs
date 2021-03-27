@@ -42,7 +42,7 @@
             this.history = new System.Windows.Forms.ToolStripButton();
             this.like = new System.Windows.Forms.ToolStripButton();
             this.dislike = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabs = new System.Windows.Forms.TabControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.savedriver = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
@@ -189,14 +189,14 @@
             this.dislike.Text = "Удалить из закладок";
             this.dislike.Click += new System.EventHandler(this.dislike_Click);
             // 
-            // tabControl1
+            // tabs
             // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 57);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(999, 393);
-            this.tabControl1.TabIndex = 1;
+            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabs.Location = new System.Drawing.Point(0, 57);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(999, 393);
+            this.tabs.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 
@@ -204,12 +204,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.savedriver});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(221, 30);
             // 
             // savedriver
             // 
+            this.savedriver.Image = ((System.Drawing.Image)(resources.GetObject("savedriver.Image")));
             this.savedriver.Name = "savedriver";
-            this.savedriver.Size = new System.Drawing.Size(216, 24);
+            this.savedriver.Size = new System.Drawing.Size(220, 26);
             this.savedriver.Text = "Сохранить на диске";
             this.savedriver.Click += new System.EventHandler(this.сохранитьНаДискеToolStripMenuItem_Click);
             // 
@@ -218,7 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabs);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Web";
             this.Text = "Web";
@@ -241,7 +242,7 @@
         private System.Windows.Forms.ToolStripTextBox searchbox;
         private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripButton updateButton;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.ToolStripButton stopButton;
         private System.Windows.Forms.ToolStripButton history;
         private System.Windows.Forms.ToolStripButton like;
