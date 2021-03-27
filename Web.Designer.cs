@@ -66,10 +66,9 @@
             this.dislike});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(913, 57);
+            this.toolStrip1.Size = new System.Drawing.Size(999, 57);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // gobackButton
             // 
@@ -80,7 +79,7 @@
             this.gobackButton.Name = "gobackButton";
             this.gobackButton.Size = new System.Drawing.Size(54, 54);
             this.gobackButton.Text = "назад";
-            this.gobackButton.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.gobackButton.Click += new System.EventHandler(this.gobackButton_Click);
             // 
             // goforwardButton
             // 
@@ -110,9 +109,8 @@
             this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(300, 57);
+            this.searchbox.Size = new System.Drawing.Size(700, 57);
             this.searchbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchbox_KeyUp_1);
-            this.searchbox.Click += new System.EventHandler(this.searchbox_Click);
             // 
             // goButton
             // 
@@ -123,7 +121,7 @@
             this.goButton.Name = "goButton";
             this.goButton.Size = new System.Drawing.Size(54, 54);
             this.goButton.Text = "поиск";
-            this.goButton.Click += new System.EventHandler(this.toolStripButton4_Click);
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
             // newtabButton
             // 
@@ -134,7 +132,7 @@
             this.newtabButton.Name = "newtabButton";
             this.newtabButton.Size = new System.Drawing.Size(54, 54);
             this.newtabButton.Text = "новая вкладка";
-            this.newtabButton.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.newtabButton.Click += new System.EventHandler(this.newtabButton_Click);
             // 
             // updateButton
             // 
@@ -187,7 +185,7 @@
             this.dislike.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dislike.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.dislike.Name = "dislike";
-            this.dislike.Size = new System.Drawing.Size(44, 54);
+            this.dislike.Size = new System.Drawing.Size(44, 44);
             this.dislike.Text = "Удалить из закладок";
             this.dislike.Click += new System.EventHandler(this.dislike_Click);
             // 
@@ -197,7 +195,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 57);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(913, 393);
+            this.tabControl1.Size = new System.Drawing.Size(999, 393);
             this.tabControl1.TabIndex = 1;
             // 
             // contextMenuStrip1
@@ -215,14 +213,14 @@
             this.savedriver.Text = "Сохранить на диске";
             this.savedriver.Click += new System.EventHandler(this.сохранитьНаДискеToolStripMenuItem_Click);
             // 
-            // Form1
+            // Web
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 450);
+            this.ClientSize = new System.Drawing.Size(999, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "Form1";
+            this.Name = "Web";
             this.Text = "Web";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);

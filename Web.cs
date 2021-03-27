@@ -24,35 +24,7 @@ namespace lababrauzer
             throw new NotImplementedException();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            var web = new WebBrowser();
-            web.Visible = true;
-            web.Dock = DockStyle.Fill;
-            tabControl1.TabPages.Add("Новая вкладка");
-            tabControl1.SelectTab(i);
-            tabControl1.SelectedTab.Controls.Add(web);
-            i++;
-
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoBack();
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(searchbox.Text))
-            {
-                File.AppendAllText("history.txt", "https://www." + searchbox.Text + "\n");
-                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(searchbox.Text);
-                tabControl1.SelectedTab.Text = searchbox.Text;
-            }
-
-        }
-
-        private void goforwardButton_Click(object sender, EventArgs e)
+    private void goforwardButton_Click(object sender, EventArgs e)
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoForward();
         }
@@ -67,32 +39,10 @@ namespace lababrauzer
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
         }
 
-        /* private void searchbox_KeyUp(object sender, KeyEventArgs e)
-         {
-             if (e.KeyCode == Keys.Enter)
-             {
-                 File.AppendAllText("history.txt", "https://www." + searchbox.Text + "\n");
-                 ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(searchbox.Text);
-                 tabControl1.SelectedTab.Text = searchbox.Text;
-             }
-         }*/
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-
-
         private void history_Click(object sender, EventArgs e)
         {
             History form = new History();
             form.Show();
-        }
-
-        private void searchbox_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void searchbox_KeyUp_1(object sender, KeyEventArgs e)
@@ -110,8 +60,6 @@ namespace lababrauzer
             mark = true;
             string url = tabControl1.SelectedTab.Text;
             File.AppendAllText("mark.txt", url + "\n");
-
-
         }
 
         private void dislike_Click(object sender, EventArgs e)
@@ -182,7 +130,6 @@ namespace lababrauzer
             int count = File.ReadAllLines("mark.txt").Length;
             marks.DropDownItems.Clear();
             string[] Marks1 = File.ReadAllLines("mark.txt");
-            //ToolStripMenuItem[] textBoxes = new ToolStripMenuItem[count];
             marks.AutoSize = true;
             for (int j = 0; j < count; j++)
             {
@@ -208,6 +155,32 @@ namespace lababrauzer
         private void сохранитьНаДискеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).ShowSaveAsDialog();
+        }
+
+        private void goButton_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(searchbox.Text))
+            {
+                File.AppendAllText("history.txt", "https://www." + searchbox.Text + "\n");
+                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(searchbox.Text);
+                tabControl1.SelectedTab.Text = searchbox.Text;
+            }
+        }
+
+        private void gobackButton_Click(object sender, EventArgs e)
+        {
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoBack();
+        }
+
+        private void newtabButton_Click(object sender, EventArgs e)
+        {
+            var web = new WebBrowser();
+            web.Visible = true;
+            web.Dock = DockStyle.Fill;
+            tabControl1.TabPages.Add("Новая вкладка");
+            tabControl1.SelectTab(i);
+            tabControl1.SelectedTab.Controls.Add(web);
+            i++;
         }
     }
 }
