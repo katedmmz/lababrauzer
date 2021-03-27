@@ -11,11 +11,11 @@ using System.IO;
 
 namespace lababrauzer
 {
-    public partial class Form1 : Form
+    public partial class Web : Form
     {
         bool mark = false;
         int i = 0;
-        public Form1()
+        public Web()
         {
             InitializeComponent();
         }
@@ -140,24 +140,25 @@ namespace lababrauzer
                 int n = File.ReadAllLines("mark.txt").Length;
                 marks.DropDownItems.Clear();
                 string[] Marks1 = File.ReadAllLines("mark.txt");
-                ToolStripMenuItem[] textBoxes = new ToolStripMenuItem[n];
+                
                 marks.AutoSize = true;
                 for (int j = 0; j < n; j++)
                 {
                     marks.DropDownItems.Add(Marks1[j]);
                     marks.DropDownItems[j].Click += (s, t) =>
                     {
-                        ToolStripMenuItem striper = s as ToolStripMenuItem;
+                        ToolStripMenuItem st = s as ToolStripMenuItem;
+                        File.AppendAllText("history.txt", "https://www." + st.Text + "\n");
                         WebBrowser web1 = new WebBrowser();
                         web1.Visible = true;
                         web1.ScriptErrorsSuppressed = true;
                         web1.Dock = DockStyle.Fill;
-                        web1.DocumentCompleted += Web_DocumentCompleted;
-                        tabControl1.TabPages.Add(striper.Text);
+                        web1.DocumentCompleted += Web_DocumentCompleted;//проверяет реализованный метод после загрузки
+                        tabControl1.TabPages.Add(st.Text);
                         tabControl1.SelectTab(i);
                         tabControl1.SelectedTab.Controls.Add(web1);
                         i += 1;
-                        ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(striper.Text);
+                        ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(st.Text);
                     };
                 }
 
@@ -181,24 +182,25 @@ namespace lababrauzer
             int count = File.ReadAllLines("mark.txt").Length;
             marks.DropDownItems.Clear();
             string[] Marks1 = File.ReadAllLines("mark.txt");
-            ToolStripMenuItem[] textBoxes = new ToolStripMenuItem[count];
+            //ToolStripMenuItem[] textBoxes = new ToolStripMenuItem[count];
             marks.AutoSize = true;
             for (int j = 0; j < count; j++)
             {
                 marks.DropDownItems.Add(Marks1[j]);
                 marks.DropDownItems[j].Click += (s, t) =>
                 {
-                    ToolStripMenuItem striper = s as ToolStripMenuItem;
+                    ToolStripMenuItem st = s as ToolStripMenuItem;
+                    File.AppendAllText("history.txt", "https://www." + st.Text + "\n");
                     WebBrowser web1 = new WebBrowser();
                     web1.Visible = true;
                     web1.ScriptErrorsSuppressed = true;
                     web1.Dock = DockStyle.Fill;
                     web1.DocumentCompleted += Web_DocumentCompleted;
-                    tabControl1.TabPages.Add(striper.Text);
+                    tabControl1.TabPages.Add(st.Text);
                     tabControl1.SelectTab(i);
                     tabControl1.SelectedTab.Controls.Add(web1);
                     i += 1;
-                    ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(striper.Text);
+                    ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(st.Text);
                 };
             }
         }

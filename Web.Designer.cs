@@ -1,6 +1,6 @@
 ﻿namespace lababrauzer
 {
-    partial class Form1
+    partial class Web
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Web));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.gobackButton = new System.Windows.Forms.ToolStripButton();
             this.goforwardButton = new System.Windows.Forms.ToolStripButton();
@@ -223,7 +223,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Web";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
